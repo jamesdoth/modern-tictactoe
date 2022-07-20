@@ -1,3 +1,3 @@
-# Create T3 App
+# modern-tictactoe
 
-This is an app bootstrapped according to the [init.tips](https://init.tips) stack, also known as the T3-Stack.
+Refactoring React Doc tictactoe tutorial with next.js typescript and tailwind.
