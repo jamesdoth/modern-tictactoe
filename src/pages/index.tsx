@@ -1,5 +1,12 @@
 import Head from "next/head";
 
+function Board() {
+  return <div>This is the board</div>;
+}
+
+function Square() {
+  return <button>This is a square</button>
+}
 
 export default function Home() {
   return (
@@ -11,7 +18,7 @@ export default function Home() {
       </Head>
 
       <main className="container mx-auto flex flex-col items-center justify-center h-screen p-4">
-        hello
+        <Board /><Square />
       </main>
     </>
   );
