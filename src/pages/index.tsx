@@ -1,11 +1,34 @@
 import Head from "next/head";
 
+interface SquareProps {
+  onClick(): void
+  value: 'X' | 'O' | null
+}
+
+// class Board extends React.Component {
+//   renderSquare(i) {
+//     return (
+//       <Square
+//         value={this.props.squares[i]}
+//         onClick={() => this.props.onClick(i)}
+//       />
+//     );
+//   }
+
+
 function Board() {
   return <div>This is the board</div>;
 }
 
-function Square() {
-  return <button>This is a square</button>
+// function Square(props) {
+//   return (
+//     <button className="square" onClick={props.onClick}>
+//       {props.value}
+//     </button>
+//   );
+// }
+const Square: React.FC<SquareProps> = props => {
+  return <button onClick={props.onClick}>{props.value}</button>
 }
 
 export default function Home() {
@@ -31,23 +54,6 @@ export default function Home() {
 // import ReactDom from 'react-dom'
 // import './index.css'
 
-// function Square(props) {
-//   return (
-//     <button className="square" onClick={props.onClick}>
-//       {props.value}
-//     </button>
-//   );
-// }
-
-// class Board extends React.Component {
-//   renderSquare(i) {
-//     return (
-//       <Square
-//         value={this.props.squares[i]}
-//         onClick={() => this.props.onClick(i)}
-//       />
-//     );
-//   }
 
 //   render() {
 //     return (
