@@ -77,6 +77,23 @@ const Game: React.FC = () => {
       squares: Array(9).fill(null)
     }
   ])
+
+  const handleClick = (i: number): void => {
+    const newHistory = History.slice(0, stepNumber + 1)
+    const current = newHistory[newHistory.length - 1]
+    const squares = current.squares.slice();
+    if (calculateWinner(squares) || squares[i]) {
+      return
+    }
+    squares[i] = xIsNext ? "X" : "O";
+    setHistory(newHistory.concat([
+      {
+        squares: squares
+      }
+    ]))
+    setStepNumber(newHistory.length)
+    setXIsNext(!xIsNext)
+  }
 }
 
 // class Game extends React.Component {
@@ -91,6 +108,27 @@ const Game: React.FC = () => {
 //       stepNumber: 0,
 //       xIsNext: true
 //     };
+//   }
+
+
+
+//   handleClick(i) {
+//     const history = this.state.history.slice(0, this.state.stepNumber + 1);
+//     const current = history[history.length - 1];
+//     const squares = current.squares.slice();
+//     if (calculateWinner(squares) || squares[i]) {
+//       return;
+//     }
+//     squares[i] = this.state.xIsNext ? "X" : "O";
+//     this.setState({
+//       history: history.concat([
+//         {
+//           squares: squares
+//         }
+//       ]),
+//       stepNumber: history.length,
+//       xIsNext: !this.state.xIsNext
+//     });
 //   }
 
 
@@ -117,24 +155,7 @@ export default function Home(): JSX.Element {
 
 
 
-//   handleClick(i) {
-//     const history = this.state.history.slice(0, this.state.stepNumber + 1);
-//     const current = history[history.length - 1];
-//     const squares = current.squares.slice();
-//     if (calculateWinner(squares) || squares[i]) {
-//       return;
-//     }
-//     squares[i] = this.state.xIsNext ? "X" : "O";
-//     this.setState({
-//       history: history.concat([
-//         {
-//           squares: squares
-//         }
-//       ]),
-//       stepNumber: history.length,
-//       xIsNext: !this.state.xIsNext
-//     });
-//   }
+
 
 //   jumpTo(step) {
 //     this.setState({
